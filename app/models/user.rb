@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :bikes
   has_many :bookmarks
   has_many :booked_bikes, through: :bookings, source: :bike
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :phone, presence: true
 end
