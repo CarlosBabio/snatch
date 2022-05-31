@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
   before_action :set_bike, only: %i[edit update show destroy]
-  
+
   def index
     if params["searchq"]
       redirect_to root_path unless params["searchq"] =~ /(\w|\d)+/
@@ -10,7 +10,7 @@ class BikesController < ApplicationController
       redirect_to root_path
     end
   end
-  
+
   def show
     @bike = Bike.find(params[:id])
   end
