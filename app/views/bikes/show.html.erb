@@ -1,3 +1,25 @@
-<%= @bike.title %>-<%= @bike.price_per_day %>
-<%= cl_image_tag("kvkchmfu6fbwwe1jgtet",
-      width: 400, height: 300, crop: :fill) %>
+<div class="container mt-5">
+  <div class="photos">
+    <h1><%= @bike.title %> - $<%= @bike.price_per_day.round %></h1>
+    <div class="main-photo">  <%= cl_image_tag("kvkchmfu6fbwwe1jgtet",
+      width: 800, height: 600, crop: :fill, class: "bike-photo") %>
+    </div>
+    <div class="photo-grid">
+    <%= cl_image_tag("kvkchmfu6fbwwe1jgtet",
+          width: 400, height: 300, crop: :fill, class: "bike-photo") %>
+    <%= cl_image_tag("kvkchmfu6fbwwe1jgtet",
+          width: 400, height: 300, crop: :fill, class: "bike-photo") %>
+    <%= cl_image_tag("kvkchmfu6fbwwe1jgtet",
+          width: 400, height: 300, crop: :fill, class: "bike-photo") %>
+    </div>
+  </div>
+  <h2><%= @bike.address %></h2>
+  <h3><%= @bike.category %></h3>
+  <p><%= @bike.description %></p>
+  <p><%= @bike.engine_size %></p>
+  <h2>Reviews</h2>
+  <% @bike.bookings.each do |booking| %>
+    <%= booking.review.comment %>
+    <%= booking.review.rating %>
+  <% end %>
+</div>
