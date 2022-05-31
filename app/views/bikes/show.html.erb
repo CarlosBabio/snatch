@@ -19,7 +19,7 @@
   <p><%= @bike.engine_size %></p>
   <h2>Reviews</h2>
   <% @bike.bookings.each do |booking| %>
-    <%= booking.review.comment %>
-    <%= booking.review.rating %>
+    <%= booking.review %>
+    <%= booking.review %>
   <% end %>
 </div>
