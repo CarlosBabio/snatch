@@ -8,6 +8,14 @@ class BikesController < ApplicationController
     def create 
         @bike = Bike.new(bike_params)
     end
+  
+    def edit
+    end
+
+    def update
+      @bike.update(bike_params)
+      redirect_to  bike_path(@bike)
+    end
 
     private 
 
