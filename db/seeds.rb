@@ -9,7 +9,7 @@
 require 'faker'
 
 CATEGORIES = ["scooter", "motorbike", "bicycle"]
-ENGINE = [0, 90, 150, 250, 500]
+ENGINE = [50, 150, 250, 500]
 
 User.create!(
   first_name: "test",
@@ -18,6 +18,7 @@ User.create!(
   password: "123456",
   phone: "+61 38063321"
 )
+
 User.create!(
   first_name: "test",
   last_name: "rentee",
@@ -29,7 +30,7 @@ User.create!(
 20.times do
   Bike.create!(
     title: Faker::Vehicle.make_and_model,
-    description: Faker::Vehicle.color,
+    description: Faker::Lorem.paragraph(sentence_count: 5),
     address: Faker::Address.city,
     category: CATEGORIES.sample,
     engine_size: ENGINE.sample,

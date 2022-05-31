@@ -6,7 +6,7 @@ class Bike < ApplicationRecord
   has_many :bookmarks
   has_many :users, through: :bookings
 
-  validates :title, presence: true, length: { minimum: 15, maximum: 50 }
+  validates :title, presence: true, length: { minimum: 3, maximum: 50 }
   validates :description, presence: true, length: { minimum: 50, maximum: 200 }
   validates :address, presence: true
   validates :category, presence: true, inclusion: { in: CATEGORIES }
