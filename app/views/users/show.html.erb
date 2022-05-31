@@ -1,0 +1,7 @@
+<h1>Welcome, <%= @user.first_name %></h1>
+
+<h2>Current Bookings</h2>
+<% @user_bookings.each do |booking| %>
+  <p><%= booking.bike.title %></p>
+  <p><strong>$<%= booking.total_price %></strong></p>
+<% end %>
