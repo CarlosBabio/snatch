@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
-  before_action :set_bike, only: [:edit, :update, :show, :destroy]
-
+  before_action :set_bike, only: %i[edit update show destroy]
+  
   def index
     if params["searchq"]
       redirect_to root_path unless params["searchq"] =~ /(\w|\d)+/
@@ -10,34 +10,44 @@ class BikesController < ApplicationController
       redirect_to root_path
     end
   end
+  
+  def show
+    @bike = Bike.find(params[:id])
+  end
 
-    def show
-      @bike = Bike.find(params[:id])
-    end
+  def new
+    @bike = Bike.new
+  end
 
-    def new
-        @bike = Bike.new
-    end
+  def create
+    @bike = Bike.new(bike_params)
+    @bike.save
+  end
 
-    def create
-        @bike = Bike.new(bike_params)
-    end
+  def edit
+  end
 
-    def edit
-    end
+  def update
+    @bike.update(bike_params)
+    redirect_to  bike_path(@bike)
+  end
 
-    def update
-      @bike.update(bike_params)
-      redirect_to  bike_path(@bike)
-    end
+  private
 
-    private
+  def set_bike
+    @bike = Bike.find(params[:id])
+  end
 
-    def set_bike
-        @bike = Bike.find(params[:id])
-    end
-
-    def bike_params
-        params.require(:bike).permit(:title, :description, :address, :category, :engine_size, :license_plate, :price_per_day, :additional_info)
-    end
+  def bike_params
+    params.require(:bike).permit(
+      :title,
+      :description,
+      :address,
+      :category,
+      :engine_size,
+      :license_plate,
+      :price_per_day,
+      :additional_info
+    )
+  end
 end
