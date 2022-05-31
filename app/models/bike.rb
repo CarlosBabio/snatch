@@ -5,6 +5,7 @@ class Bike < ApplicationRecord
   has_many :bookings
   has_many :bookmarks
   has_many :users, through: :bookings
+  has_many_attached :photos
 
   validates :title, presence: true, length: { minimum: 3, maximum: 50 }
   validates :description, presence: true, length: { minimum: 50, maximum: 200 }
