@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :bookings, only: %w[new create]
   end
 
-  resources :bookmars, only: %w[index destroy]
+  resources :bookmarks, only: %w[index destroy]
 
   resources :bookings, only: %w[show edit update] do
     resources :reviews, only: %w[new create]
