@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
-    before_action :set_bike, only: [:edit, :update, :create, :destroy]
-    
+    before_action :set_bike, only: [:edit, :update, :show, :destroy]
+
     def new 
         @bike = Bike.new
     end
