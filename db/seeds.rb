@@ -11,7 +11,9 @@ require 'faker'
 CATEGORIES = ["scooter", "motorbike", "bicycle"]
 ENGINE = [50, 150, 250, 500]
 
-User.create!(
+
+# Creating 2 test users: 1 host, 1 user (client)
+user1 = User.new(
   first_name: "test",
   last_name: "host",
   email: "host@user.com",
@@ -19,7 +21,7 @@ User.create!(
   phone: "+61 38063321"
 )
 
-User.create!(
+user2 = User.new(
   first_name: "test",
   last_name: "rentee",
   email: "rentee@user.com",
@@ -27,8 +29,13 @@ User.create!(
   phone: "+61 38019765"
 )
 
+user1.save
+user2.save
+
+# Creating 20 bikes and 3 bookings per bike
+
 20.times do
-  Bike.create!(
+  new_bike = Bike.new(
     title: Faker::Vehicle.make_and_model,
     description: Faker::Lorem.paragraph(sentence_count: 5),
     address: Faker::Address.city,
@@ -41,4 +48,16 @@ User.create!(
     longitude: 115.140167,
     user: User.first
   )
+
+  new_bike.save
+
+  3.times do
+    Booking.create(
+      start_date: "11/06/2022",
+      end_date: "15/06/2022",
+      total_price: 100.00,
+      user: [user1, user2].sample,
+      bike: new_bike
+    )
+  end
 end

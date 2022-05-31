@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
   before_action :set_bike, only: [:edit, :update, :show, :destroy]
-  
+
   def index
     if params["searchq"]
       redirect_to root_path unless params["searchq"] =~ /(\w|\d)+/
@@ -10,19 +10,19 @@ class BikesController < ApplicationController
       redirect_to root_path
     end
   end
-  
+
     def show
       @bike = Bike.find(params[:id])
     end
 
-    def new 
+    def new
         @bike = Bike.new
     end
 
-    def create 
+    def create
         @bike = Bike.new(bike_params)
     end
-  
+
     def edit
     end
 
@@ -31,7 +31,7 @@ class BikesController < ApplicationController
       redirect_to  bike_path(@bike)
     end
 
-    private 
+    private
 
     def set_bike
         @bike = Bike.find(params[:id])
