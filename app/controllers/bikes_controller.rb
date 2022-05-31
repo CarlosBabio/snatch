@@ -1,5 +1,8 @@
 class BikesController < ApplicationController
-    before_action :set_bike, only: [:edit, :update, :show, :destroy]
+  before_action :set_bike, only: [:edit, :update, :show, :destroy]
+    def show
+      @bike = Bike.find(params[:id])
+    end
 
     def new 
         @bike = Bike.new
