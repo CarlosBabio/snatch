@@ -5,6 +5,7 @@ class Bike < ApplicationRecord
   has_many :bookings
   has_many :bookmarks
   has_many :users, through: :bookings
+  has_many :reviews, through: :bookings
   has_many_attached :photos
 
   validates :title, presence: true, length: { minimum: 3, maximum: 50 }
@@ -14,4 +15,12 @@ class Bike < ApplicationRecord
   validates :engine_size, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 50 }
   validates :license_plate, presence: true
   validates :price_per_day, presence: true, numericality: { greater_than: 0 }
+
+  def avg_rating
+    if reviews.length.zero?
+      "No ratings"
+    else
+      reviews.sum(:rating) / reviews.count
+    end
+  end
 end
