@@ -29,7 +29,7 @@
 
   &:hover {
     color: #76BDC9;
-    // background-color: #cdf2f9;
-    box-shadow: inset 0 0 .5em .3em #76BDC9;
+    outline-style: double;
+    outline-color: #76BDC9;
 }
 }
