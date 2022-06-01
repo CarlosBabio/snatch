@@ -52,9 +52,7 @@
 }
 
 .bike-details-book {
-
   display: flex;
-  position: relative;
   margin: 30px 0 60px 0;
 
   .bike-details {
@@ -69,11 +67,17 @@
   }
 
   .bike-book {
-    background-color: white;
     margin-left: 30px;
-    padding: 50px;
+    width: 40%;
+  }
+
+  .bike-book-content {
+    background-color: white;
     border-radius: 50px;
-    width: 40%
+    padding: 50px;
+    box-shadow: #{$shadow};
+    position: sticky;
+    position: -webkit-sticky;
   }
 
   .book-btn {
@@ -85,6 +89,7 @@
 
     &:hover {
       background-color: rgb(53, 126, 155);
+      box-shadow: #{$shadow};
     }
   }
 
