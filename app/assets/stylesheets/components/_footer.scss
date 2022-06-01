@@ -1,8 +1,35 @@
-.rounded-btn {
-  border-radius: 4px;
-  box-shadow: 2px 6px 8px 1px gray;
+.flex-container {
+  display: inline-flex;
+  padding: 5px;
+  display: flex;
+  margin: 0px auto;
+  justify-content: center;
+
+}
+
+
+
+.flex-item {
+  box-shadow: 0 0 20px lightgray;
+  font-size: 17px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline-color: #76BDC9;
+  margin: 10px;
+  color: #76BDC9;
+  ;
+
+
 
   &:hover {
-    background-color: red;
+    color: #76BDC9;
+    // background-color: #cdf2f9;
+    box-shadow: inset 0 0 .5em .3em #76BDC9;
 }
 }

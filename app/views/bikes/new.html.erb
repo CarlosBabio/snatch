@@ -1,29 +1,51 @@
+<%= render 'shared/navbar' %>
+
 <div class="container py-5">
  <div class="row">
  <div class="col-12 col-md-6 offset-lg-3">
- <div class="bg-white rounded p-3 shadow">
-  <h3>Create a New Listing</h3>
+ <div class=" p-3 shadow form-corners">
+  <h3 style="text-align:center;" class="form-title">Create a New Listing</h3>
+  <img src="https://images.unsplash.com/photo-1588621616925-da7752f156ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bW90b3JzY29vdGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60" class="scooter-image"/>
         <%= simple_form_for @bike do |f| %>
+ <span class="">
+          <%= f.input :title, placeholder: 'Title', label: false %>
+          </span>
 
-          <%= f.input :title, placeholder: 'Title' %>
+          <%= f.input :description,placeholder: 'Description', label: false %>
 
-          <%= f.input :category, collection: ["Scooter", "Motorcycle", "Bicycle"] %>
+          <%= f.input :address, placeholder: 'Address', label: false %>
 
-          <%= f.input :engine_size, collection: ["50", "75", "100", "150","200", "250", "300", "350", "400", "450", "500", "550", "600", "650", "700", "750", "800", "850","900", "950", "1000", "1000+"], placeholder: 'Engine Size' %>
 
-          <%= f.input :description, placeholder: 'Description' %>
 
-          <%= f.input :license_plate, placeholder: 'License Plate' %>
 
-          <%= f.input :address, placeholder: 'Address' %>
+  <span class="dropdowns2">
+          <%= f.input :category, collection: ["Scooter", "Motorcycle", "Bicycle"], label: false, prompt: "Type" %>
+          <%= f.input :engine_size, collection: ["50", "75", "100", "150","200", "250", "300", "350", "400", "450", "500", "550", "600", "650", "700", "750", "800", "850","900", "950", "1000", "1000+"], placeholder: 'Engine Size', label: false, prompt: "Engine Size" %>
+          <%= f.input :license_plate, placeholder: 'License Plate #', label: false %>
+          
+</span>
+          <%= f.input :price_per_day, placeholder: 'Price Per Day', label: false %>
 
-          <%= f.input :additional_info, placeholder: 'Additional Information' %>
 
-          <%= f.input :price_per_day, placeholder: 'Price Per Day' %>
 
-          <%= f.submit class: 'btn btn-warning'%>
+          <%= f.input :additional_info, placeholder: 'Additional Information', label: false %>
 
+<%# <span class="dropdowns">
+</span> %>
+
+
+
+
+
+<span class="dropdowns">
+         <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Please upload a photo" %>
+</span>
+
+       <span class="dropdowns">   
+          <%= f.submit class: 'btn button_master', label: false%>
+          </span>
         <% end %>
  </div>
  </div>
 </div>
+

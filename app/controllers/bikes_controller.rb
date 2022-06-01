@@ -13,6 +13,7 @@ class BikesController < ApplicationController
 
   def show
     @bike = Bike.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -21,7 +22,12 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.new(bike_params)
-    @bike.save
+    @bike.user = User.all.first
+    if @bike.save
+      redirect_to bike_path(@bike)
+    else 
+      render :new
+    end
   end
 
   def edit
