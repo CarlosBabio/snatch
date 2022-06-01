@@ -1,1 +1,26 @@
 // Specific CSS for your home-page
+.clip-art-stack {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.stack-1 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.stack-2 {
+  transform: rotate(-25deg);
+  position: absolute;
+  top: 46px;
+  left: 5px;
+}
+
+.stack-3 {
+  position: absolute;
+  top: 0px;
+  left: 194px;
+  transform: rotate(-5deg)
+}

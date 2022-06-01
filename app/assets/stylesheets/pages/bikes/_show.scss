@@ -1,7 +1,103 @@
-.bike-photo {
-  border-radius: 15px;
+.bike-header {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 20px;
+
+  .bike-title {
+    color: grey;
+  }
+
+  .favorite-icon {
+    font-size: 20px;
+    padding: 0 30px;
+  }
 }
 
-.features {
-  width: 500px;
+.bike-images-container {
+  margin: 0 0 30px 0;
+  display: flex;
+  border-radius: 50px;
+  height: 600px;
+  overflow: hidden;
+
+  .main-image {
+    width: 50%;
+    margin-right: 5px;
+  }
+
+  .secondary-images {
+    margin-left: 5px;
+    width: 50%;
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 10px;
+    column-gap: 10px;
+  }
+
+  .bike-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.bike-location {
+  margin: 15px 0;
+
+  i, h2 {
+    display: inline;
+  }
+}
+
+.bike-details-book {
+  display: flex;
+  margin: 30px 0 60px 0;
+
+  .bike-details {
+    margin-right: 30px;
+    width: 60%;
+  }
+
+  .bike-specs {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 80px;
+  }
+
+  .bike-book {
+    margin-left: 30px;
+    width: 40%;
+  }
+
+  .bike-book-content {
+    background-color: white;
+    border-radius: 50px;
+    padding: 50px;
+    box-shadow: #{$shadow};
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 100px;
+  }
+
+  .book-btn {
+    margin-top: 20px;
+    background-color: #{$snatchblue};
+    padding: 10px 15px;
+    border-radius: 50px;
+    color: white;
+
+    &:hover {
+      background-color: #{$snatchbluehover};
+      box-shadow: #{$shadow};
+    }
+  }
+
+  .total-price {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+  }
+
 }

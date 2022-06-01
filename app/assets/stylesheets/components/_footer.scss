@@ -1,28 +1,35 @@
 .flex-container {
   display: inline-flex;
-  padding: 20px;
+  padding: 5px;
   display: flex;
   margin: 0px auto;
-  justify-content: space-evenly;
+  justify-content: center;
 
 }
 
 
 
 .flex-item {
-  box-shadow: 1px 2px 3px 1px #808080;
-  font-size: 20px;
-  height: 60px;
-  width: 60px;
+  box-shadow: 0 0 20px lightgray;
+  font-size: 17px;
+  height: 50px;
+  width: 50px;
   text-align: center;
   text-decoration: none;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  outline-color: #76BDC9;
+  margin: 10px;
+  color: #76BDC9;
+  ;
+
 
 
   &:hover {
-    background-color: rgb(158, 220, 213);
+    color: #76BDC9;
+    outline-style: double;
+    outline-color: #76BDC9;
 }
 }

@@ -1,41 +1,70 @@
-<div class="container mt-5">
-  <div class="bike-title d-flex justify-content-between">
-    <h1><%= @bike.title %> - $<%= @bike.price_per_day.round %></h1>
-    <i class="fa-regular fa-heart"></i>
+<%= render "shared/navbar", user: current_user %>
+
+<div class="container">
+
+  <div class="bike-header">
+    <h1 class="bike-title"><%= @bike.title %></h1>
+    <p class="favorite-icon">❤️</p>
   </div>
-  <div class="photos d-flex">
-    <div class="main-photo">
-    <%= cl_image_tag("kvkchmfu6fbwwe1jgtet", width: 800, height: 600, crop: :fill, class: "bike-photo") %>
+  <div class="bike-images-container">
+    <div class="main-image">
+      <img src="https://www.btklsby.go.id/images/placeholder/basic.png" class="bike-img" alt="">
     </div>
-    <div class="photo-grid d-flex">
-    <%= cl_image_tag("kvkchmfu6fbwwe1jgtet",
-          width: 400, height: 300, crop: :fill, class: "bike-photo") %>
-    <%= cl_image_tag("kvkchmfu6fbwwe1jgtet",
-          width: 400, height: 300, crop: :fill, class: "bike-photo") %>
-    <%= cl_image_tag("kvkchmfu6fbwwe1jgtet",
-          width: 400, height: 300, crop: :fill, class: "bike-photo") %>
+    <div class="secondary-images">
+      <div class="bike-img-gridbox">
+        <img src="https://www.btklsby.go.id/images/placeholder/basic.png" class="bike-img" alt="">
+      </div>
+      <div class="bike-img-gridbox">
+        <img src="https://www.btklsby.go.id/images/placeholder/basic.png" class="bike-img" alt="">
+      </div>
+      <div class="bike-img-gridbox">
+        <img src="https://www.btklsby.go.id/images/placeholder/basic.png" class="bike-img" alt="">
+      </div>
+      <div class="bike-img-gridbox">
+        <img src="https://www.btklsby.go.id/images/placeholder/basic.png" class="bike-img" alt="">
+      </div>
     </div>
   </div>
-  <h2><%= @bike.address %></h2>
-  <div class="bike-details d-flex justify-content-around">
+
+  <div class="bike-location">
+    <i>📍</i>
+    <h2><%= @bike.address %></h2>
+  </div>
+
+  <div class="bike-details-book">
+    <div class="bike-details">
+      <div class="bike-features">
+        <h2><%= @bike.title %> Specs and Features</h2>
+        <span class="bike-specs"><h3><%= @bike.category.capitalize %></h3> <h3><%= @bike.engine_size %>cc</h3></span>
+        <p><%= @bike.description %></p>
+      </div>
       <div class="bike-reviews">
-      <h2>Reviews</h2>
-      <% @bike.bookings.each do |booking| %>
-        <%= booking.review %>
-        <%= booking.review %>
-      <% end %>
-    </div>
-    <div class="features">
-      <h2><%= @bike.title %> Specs and Features</h2>
-      <h3><%= @bike.category %></h3>
-      <p><%= @bike.description %></p>
-      <p><%= @bike.engine_size %></p>
-      <p>
-        <% @bike.features.each do |feature| %>
-          <%= feature %>
+        <h2>Reviews</h2>
+        <% @bike.bookings.each do |booking| %>
+          <%= booking.review %>
+          <%= booking.review %>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+          molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+          numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+          optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
+          obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
+          nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
+          tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
+          quia.
+          </p>
         <% end %>
-      </p>
+      </div>
     </div>
-    <div class="payment-card"></div>
+    <div class="bike-book">
+      <div class="bike-book-content">
+        <%= simple_form_for([@bike, @booking]) do |f| %>
+          <%= f.input :start_date, as: :date, html5: true %>
+          <%= f.input :end_date, as: :date, html5: true %>
+          <%= f.button :submit, class: "book-btn" %>
+        <% end %>
+        <h4 class="total-price">$60.00</h4>
+      </div>
+    </div>
   </div>
+
 </div>
