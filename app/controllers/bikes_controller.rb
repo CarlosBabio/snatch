@@ -25,7 +25,7 @@ class BikesController < ApplicationController
     @bike.user = User.all.first
     if @bike.save
       redirect_to bike_path(@bike)
-    else 
+    else
       render :new
     end
   end

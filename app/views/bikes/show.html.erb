@@ -37,27 +37,46 @@
         <h2><%= @bike.title %> Specs and Features</h2>
         <span class="bike-specs"><h3><%= @bike.category.capitalize %></h3> <h3><%= @bike.engine_size %>cc</h3></span>
         <p><%= @bike.description %></p>
-        <p>
-          <% @bike.features.each do |feature| %>
-            <%= feature %>
-          <% end %>
-        </p>
       </div>
       <div class="bike-reviews">
         <h2>Reviews</h2>
         <% @bike.bookings.each do |booking| %>
           <%= booking.review %>
           <%= booking.review %>
+          <p>orem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+          molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+          numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+          optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
+          obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
+          nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
+          tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
+          quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
+          sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
+          recusandae alias error harum maxime adipisci amet laborum. Perspiciatis
+          minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit
+          quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur
+          fugiat, temporibus enim commodi iusto libero magni deleniti quod quam
+          consequuntur! Commodi minima excepturi repudiandae velit hic maxime
+          doloremque. Quaerat provident commodi consectetur veniam similique ad
+          earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo
+          fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore
+          suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
+          modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam
+          totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam
+          quasi aliquam eligendi, placeat qui corporis!
+          </p>
         <% end %>
       </div>
     </div>
     <div class="bike-book">
-      <%= simple_form_for([@bike, @booking]) do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.button :submit, class: "book-btn" %>
-      <% end %>
-      <h4 class="total-price">$60.00</h4>
+      <div class="bike-book-content">
+        <%= simple_form_for([@bike, @booking]) do |f| %>
+          <%= f.input :start_date, as: :date, html5: true %>
+          <%= f.input :end_date, as: :date, html5: true%>
+          <%= f.button :submit, class: "book-btn" %>
+        <% end %>
+        <h4 class="total-price">$60.00</h4>
+      </div>
     </div>
   </div>
 
