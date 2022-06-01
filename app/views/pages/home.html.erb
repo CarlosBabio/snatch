@@ -15,7 +15,7 @@
           <% end %>
           <div class="card-body">
             <div class="d-flex justify-content-between">
-              <h5 class="card-title fs-3"><%= bike.title %></h5>
+              <h5 class="card-title fs-3"><%=link_to bike.title, bike_path(bike) %></h5>
               <i class="fa-regular fa-bookmark"></i>
             </div>
             <p class="card-text"><%= bike.engine_size %>cc</p>
