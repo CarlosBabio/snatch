@@ -1,3 +1,48 @@
-<% @bikes.each do |bike| %>
-  <p><%= link_to bike.title, bike_path(bike) %></p>
+<%= render "shared/navbar" %>
+</br>
+</br>
+</br>
+
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-white">
+    <h1 style="color:black">Snatch a bike near you</h1>
+    <h3 style="color:black">Use the map on the left-hand side to find Snatch near you</h3>
+  </div>
+</div>
+
+<div class="container">
+
+
+<div class="row">
+<div class="col-6">
+   <div class="card-product">
+    <img src="" class="map-pic"/>
+    <div class="card-product-infos">
+    </div>
+   </div>
+</div>
+
+
+
+
+<div class="col-6">
+<% @bikes.each do  |bike| %>
+<div class="card-product">
+  <% if bike.photos.attached? %>
+    <%= cl_image_tag bike.photos[0].key, height:300, width: 350, class:"bike-img" %>
+  <% else %>
+    <%= ":(" %>
+  <% end %>
+   <%# <img src="https://media.istockphoto.com/photos/see-the-world-for-what-it-truly-is-beautiful-picture-id1307962566?b=1&k=20&m=1307962566&s=170667a&w=0&h=wkz-YY16wHmKC9yuTXqr7_v2eITNf8jZifiDmoZXehQ=" class="scooter_pic"/> %>
+  <div class="card-product-infos">
+    <h2> <%= link_to bike.title, bike_path(bike) %> </h2>
+    <p> <strong> Description: </strong> <%= bike.description %></p>
+    <p> <strong> Address: </strong> <%= bike.address %></p>
+    <p><strong> Price:</strong>  $<%= bike.price_per_day %></p>
+  </div>
+</div>
+
 <% end %>
+</div>
+</div>
+</div>
