@@ -34,30 +34,30 @@ user2.save
 
 # Creating 20 bikes and 3 bookings per bike
 
-20.times do
-  new_bike = Bike.new(
-    title: Faker::Vehicle.make_and_model,
-    description: Faker::Lorem.paragraph(sentence_count: 5),
-    address: Faker::Address.city,
-    category: CATEGORIES.sample,
-    engine_size: ENGINE.sample,
-    features: Faker::Vehicle.standard_specs,
-    license_plate: Faker::Vehicle.license_plate,
-    price_per_day: (5..50).to_a.sample,
-    latitude: -8.639880,
-    longitude: 115.140167,
-    user: User.first
-  )
+# 20.times do
+#   new_bike = Bike.new(
+#     title: Faker::Vehicle.make_and_model,
+#     description: Faker::Lorem.paragraph(sentence_count: 5),
+#     address: Faker::Address.city,
+#     category: CATEGORIES.sample,
+#     engine_size: ENGINE.sample,
+#     features: Faker::Vehicle.standard_specs,
+#     license_plate: Faker::Vehicle.license_plate,
+#     price_per_day: (5..50).to_a.sample,
+#     latitude: -8.639880,
+#     longitude: 115.140167,
+#     user: User.first
+#   )
 
-  new_bike.save
+#   new_bike.save
 
-  3.times do
-    Booking.create(
-      start_date: "11/06/2022",
-      end_date: "15/06/2022",
-      total_price: 100.00,
-      user: [user1, user2].sample,
-      bike: new_bike
-    )
-  end
-end
+#   3.times do
+#     Booking.create(
+#       start_date: "11/06/2022",
+#       end_date: "15/06/2022",
+#       total_price: 100.00,
+#       user: [user1, user2].sample,
+#       bike: new_bike
+#     )
+#   end
+# end
