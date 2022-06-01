@@ -8,7 +8,7 @@
   </div>
   <div class="bike-images-container">
     <div class="main-image">
-      <img src="https://www.btklsby.go.id/images/placeholder/basic.png" class="bike-img" alt="">
+      <%= cl_image_tag @bike.photos[0].key, class:"bike-img" %>
     </div>
     <div class="secondary-images">
       <div class="bike-img-gridbox">
