@@ -21,7 +21,11 @@ class BikesController < ApplicationController
 
   def create
     @bike = Bike.new(bike_params)
-    @bike.save
+    if @bike.save
+      redirect_to bike_path(@bike)
+    else 
+      render :new
+    end
   end
 
   def edit
@@ -47,7 +51,8 @@ class BikesController < ApplicationController
       :engine_size,
       :license_plate,
       :price_per_day,
-      :additional_info
+      :additional_info,
+      photos: []
     )
   end
 end
