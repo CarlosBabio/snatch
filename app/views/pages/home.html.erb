@@ -8,11 +8,15 @@
     <% @bikes.each do |bike| %>
       <div class="col-sm-3 mt-5">
         <div class="card vertical" style="width: 18rem; line-height: 0.7;">
-          <%= cl_image_tag("kvkchmfu6fbwwe1jgtet", width: :cover) %>
+          <% if bike.photos.attached? %>
+            <%= cl_image_tag bike.photos[0].key, class:"bike-img" %>
+          <% else %>
+            <%= ":(" %>
+          <% end %>
           <div class="card-body">
             <div class="d-flex justify-content-between">
-              <h5 class="card-title fs-3"><%= bike.title %></h5>
-              <p class="">❤️</p>
+              <h5 class="card-title fs-3"><%=link_to bike.title, bike_path(bike) %></h5>
+              <i class="fa-regular fa-bookmark"></i>
             </div>
             <p class="card-text"><%= bike.engine_size %>cc</p>
             <p class="card-text"><%= bike.category %></p>
@@ -39,14 +43,14 @@
     <div class="pt-5 w-25">
       <h3>Freedom.</h3>
       <h3>A few clicks away.</h3>
-      <p>You can be on </p>
+      <p>Tired of Gojek? Need to find a two wheeled whip? Search for a Snatch and score yourself a ticket to bliss. Or save yourself from travel hassel and book a ride ahead of time.</p>
     </div>
   </div>
   <div class="d-flex justify-content-around mt-5 mb-5">
     <div class="pt-5 w-25">
       <h3>Have a bike?</h3>
       <h3>Make money.</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+      <p>Why not make a bit of side change with your extra wheels? Set your price and see who digs your Snatch!</p>
     </div>
     <div class="clip-art-stack">
       <%= image_tag("home/purple-vespa", width: 400, class:"stack-1") %>
