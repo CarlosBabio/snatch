@@ -15,9 +15,6 @@
 
           <%= f.input :address, placeholder: 'Address', label: false %>
 
-
-
-
   <span class="dropdowns2">
           <%= f.input :category, collection: ["Scooter", "Motorcycle", "Bicycle"], label: false, prompt: "Type" %>
           <%= f.input :engine_size, collection: ["50", "75", "100", "150","200", "250", "300", "350", "400", "450", "500", "550", "600", "650", "700", "750", "800", "850","900", "950", "1000", "1000+"], placeholder: 'Engine Size', label: false, prompt: "Engine Size" %>
@@ -29,13 +26,6 @@
 
 
           <%= f.input :additional_info, placeholder: 'Additional Information', label: false %>
-
-<%# <span class="dropdowns">
-</span> %>
-
-
-
-
 
 <span class="dropdowns">
          <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Please upload a photo" %>
