@@ -1,8 +1,28 @@
-.rounded-btn {
-  border-radius: 4px;
-  box-shadow: 2px 6px 8px 1px gray;
+.flex-container {
+  display: inline-flex;
+  padding: 20px;
+  display: flex;
+  margin: 0px auto;
+  justify-content: space-evenly;
+
+}
+
+
+
+.flex-item {
+  box-shadow: 1px 2px 3px 1px #808080;
+  font-size: 20px;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 
   &:hover {
-    background-color: red;
+    background-color: rgb(158, 220, 213);
 }
 }
