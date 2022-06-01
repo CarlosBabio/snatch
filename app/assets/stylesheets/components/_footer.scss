@@ -1,10 +1,12 @@
 .flex-container {
-  display: inline-flex;
-  padding: 5px;
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid #{$snatchblue};
   display: flex;
   margin: 0px auto;
+  background-color: white;
+  flex-direction: column;
   justify-content: center;
-
 }
 
 
@@ -23,8 +25,6 @@
   outline-color: #76BDC9;
   margin: 10px;
   color: #76BDC9;
-  ;
-
 
 
   &:hover {
@@ -32,4 +32,9 @@
     outline-style: double;
     outline-color: #76BDC9;
 }
+}
+
+.socials {
+  display: flex;
+  align-self: center;
 }
