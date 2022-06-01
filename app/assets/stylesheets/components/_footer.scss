@@ -1,0 +1,8 @@
+.rounded-btn {
+  border-radius: 4px;
+  box-shadow: 2px 6px 8px 1px gray;
+
+  &:hover {
+    background-color: red;
+}
+}
