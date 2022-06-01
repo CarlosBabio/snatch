@@ -76,8 +76,9 @@
     border-radius: 50px;
     padding: 50px;
     box-shadow: #{$shadow};
+    position: -webkit-sticky; /* Safari */
     position: sticky;
-    position: -webkit-sticky;
+    top: 100px;
   }
 
   .book-btn {
@@ -88,7 +89,7 @@
     color: white;
 
     &:hover {
-      background-color: rgb(53, 126, 155);
+      background-color: #{$snatchbluehover};
       box-shadow: #{$shadow};
     }
   }

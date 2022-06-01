@@ -14,6 +14,8 @@
   justify-content: space-between;
   align-items: center;
 
+  box-shadow: #{$shadow};
+
   .nav-logo {
     margin: 0 10px;
   }
@@ -47,5 +49,7 @@
     padding: 20px;
     border-radius: 20px;
     background-color: grey;
+    background-image: url("https://res.cloudinary.com/wagon/image/upload/c_fill,w_200/v1585817063/mjfsgrwh6a5l8msehjhg.jpg");
+    background-size: cover;
   }
 }
