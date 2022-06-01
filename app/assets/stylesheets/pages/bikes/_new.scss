@@ -1,0 +1,26 @@
+.new-bike-fullpage {
+  margin-top: -60px;
+  background-image: url("https://images.unsplash.com/photo-1518623001395-125242310d0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2880&q=80");
+  background-position: center;
+}
+
+.add-form-card {
+  margin: 100px 0 30px 0;
+  backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.125);;
+  padding: 40px;
+
+  input {
+    border: none;
+  }
+}
+
+.add-form-title {
+  text-align: center;
+  color: #{$snatchdarkgrey};
+  font-weight: 700;
+  margin-bottom: 20px;
+}
