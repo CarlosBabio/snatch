@@ -47,7 +47,8 @@ class BikesController < ApplicationController
       :engine_size,
       :license_plate,
       :price_per_day,
-      :additional_info
+      :additional_info,
+      photos: []
     )
   end
 end
