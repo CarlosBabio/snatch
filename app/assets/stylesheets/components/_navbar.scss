@@ -49,3 +49,12 @@
     background-color: grey;
   }
 }
+
+.add-bike-btn {
+  text-decoration: none;
+  color: #76BDC9;
+
+  &:hover {
+   color: #76BDC9;
+  }
+}
