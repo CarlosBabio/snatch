@@ -1,5 +1,5 @@
 class Bike < ApplicationRecord
-  CATEGORIES = %w[motorbike scooter bicycle custom]
+  CATEGORIES = %w[Scooter Motorcycle Bicycle]
 
   belongs_to :user
   has_many :bookings

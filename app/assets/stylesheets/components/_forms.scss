@@ -1,0 +1,44 @@
+.button_master {
+    border-radius: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-color: #76bdc9;
+    fill-opacity: 1;
+    color: white;
+}
+.scooter-image {
+    width: 75%;
+    height: 50%;
+    border-radius: 50px;
+    padding-bottom: 20px;
+    margin-left:10%;
+}
+
+.form-title {
+color: #76BDC9; 
+box-shadow: 1rem;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-shadow: 0.5px 0.5px 0px black;
+}
+
+.form-corners {
+    border-radius: 50px;
+}
+
+.dropdowns {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.dropdowns2 {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
