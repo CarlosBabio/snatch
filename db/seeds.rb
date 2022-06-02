@@ -14,7 +14,7 @@ ENGINE = [50, 150, 250, 500]
 
 # Creating 2 test users: 1 host, 1 user (client)
 user1 = User.new(
-  first_name: "test",
+  first_name: "host",
   last_name: "host",
   email: "host@user.com",
   password: "123456",
@@ -22,7 +22,7 @@ user1 = User.new(
 )
 
 user2 = User.new(
-  first_name: "test",
+  first_name: "rentee",
   last_name: "rentee",
   email: "rentee@user.com",
   password: "123456",
