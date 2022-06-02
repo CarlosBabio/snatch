@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :bikes
   has_many :bookmarks
-  has_many :booked_bikes, through: :bookings, source: :bike
+  has_many :my_bike_bookings, through: :bikes, source: :bookings
   has_one_attached :avatar
   has_one_attached :government_id
 
