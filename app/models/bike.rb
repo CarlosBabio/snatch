@@ -18,6 +18,7 @@ class Bike < ApplicationRecord
   validates :engine_size, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 50 }
   validates :license_plate, presence: true
   validates :price_per_day, presence: true, numericality: { greater_than: 0 }
+  validates :photos, presence: true
 
   def avg_rating
     if reviews.length.zero?

@@ -12,5 +12,7 @@ class UsersController < ApplicationController
     @my_bookings = current_user.bookings
     @my_bike_bookings = current_user.my_bike_bookings
     @user = current_user
+    @bikes = current_user.bikes
+    @bookmarks = Bookmark.where(user_id: current_user.id)
   end
 end
