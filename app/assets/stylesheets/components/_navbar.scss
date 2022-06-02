@@ -68,9 +68,12 @@
   font-size:15px;
 }
 }
+
 // search button styling
 .search-btn {
-  border-radius:50px;
+  padding: 5px 8px;
+  transition: 0.5s;
+  border-radius: 50px;
   border:none;
   margin-left: -78px;
   &:hover{
