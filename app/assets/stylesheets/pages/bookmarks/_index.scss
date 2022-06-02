@@ -1,3 +1,35 @@
-.container {
-  padding: 1px;
+.no-search-result {
+  height: 80vh;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .box-center {
+    margin-top: 5%;
+    display: flex;
+    position: relative;
+    height: 400px;
+    width: 60vw;
+    flex-direction: column;
+  }
+
+  .oups {
+    color: #{$snatchblue};
+    font-weight: 900;
+    font-size: 152px;
+  }
+
+  .no-result-text {
+    font-size: 48px;
+    font-weight: 900;
+  }
+
+  .no-result-img {
+    height: 80%;
+    max-height: 300px;
+    position: absolute;
+    left: 50%;
+    top: -10%;
+  }
 }

@@ -1,4 +1,17 @@
 <%= render "shared/navbar", user: current_user %>
+
+<% if @bookmarks.empty? %>
+
+  <div class="no-search-result">
+    <div class="box-center">
+      <p class="oups">Oops.</p>
+      <p class="no-result-text">You still need to get some!</p>
+      <%= image_tag "explosion2.png", class: "no-result-img" %>
+    </div>
+  </div>
+
+<% else %>
+
 <div class="container">
     <div class="row mb-5">
       <% @bookmarks.each do |bookmark| %>
@@ -34,3 +47,5 @@
       <% end %>
     </div>
   </div>
+
+<% end %>
