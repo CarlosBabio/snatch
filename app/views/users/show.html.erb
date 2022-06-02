@@ -1,7 +1,14 @@
-<h1>Welcome, <%= @user.first_name %></h1>
-
-<h2>Current Bookings</h2>
-<% @user_bookings.each do |booking| %>
-  <p><%= booking.bike.title %></p>
-  <p><strong>$<%= booking.total_price %></strong></p>
-<% end %>
+<div class="container d-flex flex-column align-items-center">
+  <div class="mt-5">
+    <h1>Welcome, <%= @user.first_name %></h1>
+  </div>
+  <div class="mt-5">
+    <h2>Your Bookings</h2>
+    <% @user_bookings.each do |booking| %>
+      <p><%= booking.bike.title %></p>
+      <p>Start: <%= booking.start_date %></p>
+      <p>Finish: <%= booking.end_date %></p>
+      <p><strong>$<%= booking.total_price %></strong></p>
+    <% end %>
+  </div>
+</div>
