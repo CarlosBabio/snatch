@@ -70,12 +70,10 @@
 // search button styling
 .search-btn {
   border-radius:50px;
-  color: #{$snatchblue};
-  border-width: 1px;
-  background-color: whitesmoke;
+  border:none;
   margin-left: -78px;
   &:hover{
-    color: $snatchdarkgrey;
+    background-color: $snatchblue;
   }
 }
 
@@ -92,6 +90,7 @@
   display: none;
   position: absolute;
   background-color: white;
+
   min-width: 95px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -100,7 +99,7 @@
 }
 
 .dropdown-content a {
-  color: black;
+  color: $snatchblue;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
