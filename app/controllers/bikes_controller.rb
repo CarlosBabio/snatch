@@ -6,6 +6,14 @@ class BikesController < ApplicationController
       redirect_to root_path unless params["searchq"] =~ /(\w|\d)+/
       @bikes = Bike.where("address iLIKE ?", "%#{params['searchq']}%")
                    .or(Bike.where("title iLIKE ?", "%#{params['searchq']}%")).limit(50)
+
+      @markers = @bikes.geocoded.map do |bike|
+        {
+          lat: bike.latitude,
+          lng: bike.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { bike: bike })
+        }
+      end
     else
       redirect_to root_path
     end

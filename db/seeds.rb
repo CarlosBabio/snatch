@@ -51,13 +51,13 @@ user2.save
 
 #   new_bike.save
 
-#   3.times do
-#     Booking.create(
-#       start_date: "11/06/2022",
-#       end_date: "15/06/2022",
-#       total_price: 100.00,
-#       user: [user1, user2].sample,
-#       bike: new_bike
-#     )
-#   end
+#   # 3.times do
+#   #   Booking.create(
+#   #     start_date: "11/06/2022",
+#   #     end_date: "15/06/2022",
+#   #     total_price: 100.00,
+#   #     user: [user1, user2].sample,
+#   #     bike: new_bike
+#   #   )
+#   # end
 # end

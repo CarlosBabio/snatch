@@ -16,7 +16,18 @@
           <div class="card-body">
             <div class="d-flex justify-content-between">
               <h5 class="card-title fs-3"><%=link_to bike.title, bike_path(bike) %></h5>
-              <p>❤️</p>
+              <% if user_signed_in? %>
+                <% if bike.bookmarks.pluck(:user_id).include?(current_user.id) == true %>
+                  <% bookmark = bike.bookmarks.find_by(user_id:current_user.id) %>
+                  <%=link_to bookmark_path(bookmark), method: :delete, remote: true do %>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to bike_bookmarks_path(bike), method: :post, remote: true do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                <% end %>
+              <%end%>
             </div>
             <p class="card-text"><%= bike.engine_size %>cc</p>
             <p class="card-text"><%= bike.category %></p>

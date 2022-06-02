@@ -1,4 +1,5 @@
 class Bookmark < ApplicationRecord
   belongs_to :user
-  validates :comment, length: { maximum: 50 }
+  belongs_to :bike
+  # validates :comment, length: { maximum: 50 }
 end

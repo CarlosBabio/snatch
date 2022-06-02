@@ -10,6 +10,7 @@
   top: 20px;
   z-index: 1;
 
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,31 +35,79 @@
     &:hover {
       text-decoration: underline;
       font-weight: bolder;
+      color: $snatchdarkgrey;
     }
   }
 
   .search-bar {
     padding: 10px 20px;
-    width: 50vw;
+    width: 46vw;
     border-radius: 50px;
-    border: none;
+    border-width: thin;
     // border: 1px solid #{$snatchblue};
   }
 
   .userNavAvatar {
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 50px;
     background-color: grey;
     background-image: url("https://res.cloudinary.com/wagon/image/upload/c_fill,w_200/v1585817063/mjfsgrwh6a5l8msehjhg.jpg");
     background-size: cover;
-  }
+    
+   
+
 }
+
+
+
 
 .add-bike-btn {
   text-decoration: none;
   color: #76BDC9;
-
-  &:hover {
-   color: #76BDC9;
+  font-size:15px;
+}
+}
+// search button styling
+.search-btn {
+  border-radius:50px;
+  border:none;
+  margin-left: -78px;
+  &:hover{
+    background-color: $snatchblue;
   }
 }
+
+// new code 
+
+// 
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+
+  min-width: 95px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top:40px;
+  left:3px;
+}
+
+.dropdown-content a {
+  color: $snatchblue;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
