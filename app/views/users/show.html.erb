@@ -1,30 +1,64 @@
+<%= render "shared/navbar" %>
 <div class="container d-flex flex-column align-items-center">
   <div class="mt-5">
     <h1>Welcome, <%= @user.first_name %></h1>
   </div>
   <div class="mt-5">
-    <h2>My Bookings</h2>
+    <h2 class="text-center p-2">My Bookings</h2>
     <% if @my_bookings != [] %>
-      <% @my_bookings.each do |booking| %>
-        <p><%= booking.bike.title %></p>
-        <p>Start: <%= booking.start_date %></p>
-        <p>Finish: <%= booking.end_date %></p>
-        <p>Status: <%= booking.status %></p>
-        <p><strong>$<%= booking.total_price %></strong></p>
-      <% end %>
+      <div class="row row-cols-1">
+        <% @my_bookings.each do |booking| %>
+          <div class="col d-flex justify-content-center" style="padding-bottom: 15px">
+            <div class="card booking-card mb-3" style="max-width: 700px;">
+              <div class="row g-0">
+                  <div class="col-md-4">
+                      <%= image_tag booking.bike.photos[0], alt: "", width: :cover, class:"img-fluid booking-img" %>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-booking-content">
+                      <h4 class="pb-1"><%= booking.bike.title %></h4 class="pb-1">
+                      <p>Total Price: $<%= booking.total_price %></p>
+                      <p><%= booking.start_date.strftime("%b %d '%y") %> - <%= booking.end_date.strftime("%b %d '%y") %></p>
+                      <p><%= booking.status %></p>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% else %>
       <p>No bookings yet.</p>
     <% end %>
   </div>
     <div class="mt-5">
-    <h2>My Bike Bookings</h2>
+    <h2 class="text-center p-2">My Bike Bookings</h2>
     <% if @my_bike_bookings != [] %>
-    <% @my_bike_bookings.each do |booking| %>
-      <p><%= booking.bike.title %></p>
-      <p>Booking ID: <%= booking.id %></p>
-      <p>Start: <%= booking.start_date %></p>
-      <p>Finish: <%= booking.end_date %></p>
-    <% end %>
+      <div class="row row-cols-1">
+        <% @my_bike_bookings.each do |booking| %>
+          <div class="col d-flex justify-content-center" style="padding-bottom: 15px">
+            <div class="card booking-card mb-3" style="max-width: 700px;">
+              <div class="row g-0">
+                  <div class="col-md-4">
+                      <%= image_tag booking.bike.photos[0], alt: "", width: :cover, class:"img-fluid booking-img" %>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-booking-content">
+                      <h4 class="pb-1"><%= booking.bike.title %></h4 class="pb-1">
+                      <p>Total Price: $<%= booking.total_price %></p>
+                      <p><%= booking.start_date.strftime("%b %d '%y") %> - <%= booking.end_date.strftime("%b %d '%y") %></p>
+                      <p><%= booking.status %></p>
+                      <% if booking.status == "PENDING" %>
+                        <p><%= link_to "Approve", accept_booking_path(booking), method: :patch %></p>
+                        <p><%= link_to "Reject", reject_booking_path(booking), method: :patch %></p>
+                      <% end %>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% else %>
       <p>No bookings yet.</p>
     <% end %>
