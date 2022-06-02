@@ -1,36 +1,46 @@
 <%= render "shared/navbar" %>
-</br>
-</br>
 
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center text-white">
-    <h1 style="color:black">Snatch a bike near you</h1>
-    <h3 style="color:black">Use the map on the left-hand side to find Snatch near you</h3>
+
+<% if @bikes.empty? %>
+
+  <div class="no-search-result">
+    <div class="box-center">
+      <p class="oups">Oops.</p>
+      <p class="no-result-text">We found no bikes for your search.</p>
+      <%= image_tag "index/no-result.png", class: "no-result-img" %>
+    </div>
   </div>
-</div>
 
-<div class="search-page">
+<% else %>
+
+  <div class="search-page">
   <div class="search-map">
       <%= image_tag "index/fake_map.png", class: "map-pic" %>
   </div>
 
   <div class="search-result">
-    <% @bikes.each do  |bike| %>
-    <div class="card-product">
-      <% if bike.photos.attached? %>
-        <%= cl_image_tag bike.photos[0].key, height:300, width: 350, class:"bike-img" %>
-      <% else %>
-        <%= ":(" %>
-      <% end %>
-      <%# <img src="https://media.istockphoto.com/photos/see-the-world-for-what-it-truly-is-beautiful-picture-id1307962566?b=1&k=20&m=1307962566&s=170667a&w=0&h=wkz-YY16wHmKC9yuTXqr7_v2eITNf8jZifiDmoZXehQ=" class="scooter_pic"/> %>
-      <div class="card-product-infos">
-        <h2> <%= link_to bike.title, bike_path(bike) %> </h2>
-        <p> <strong> Description: </strong> <%= bike.description %></p>
-        <p> <strong> Address: </strong> <%= bike.address %></p>
-        <p><strong> Price:</strong>  $<%= bike.price_per_day %></p>
+    <div class="text-center">
+      <h1>Snatch a bike near you</h1>
+    </div>
+    <% @bikes.each do |bike| %>
+    <div class="bike-result-card">
+      <div class="bike-result-image">
+        <% if bike.photos.attached? %>
+          <%= cl_image_tag bike.photos[0].key, class: "bike-img", width: "100%", height: "100%" %>
+        <% else %>
+          <img src="https://www.btklsby.go.id/images/placeholder/basic.png" width="100%" height="100%" alt="" class="bike-img">
+        <% end %>
+      </div>
+      <div class="bike-result-info">
+        <h2 class="bike-result-title"> <%= link_to bike.title, bike_path(bike) %> </h2>
+        <p class="bike-result-desc"><%= bike.description.first(100) + "..." %></p>
+        <p class="bike-result-address"><%= bike.address %></p>
+        <p class="bike-result-price">$<%= bike.price_per_day %></p>
       </div>
     </div>
    <% end %>
   </div>
 
 </div>
+
+<% end %>
