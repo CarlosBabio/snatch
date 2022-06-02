@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 2022_06_02_062913) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
+    t.string "start_date"
+    t.string "end_date"
     t.float "total_price"
     t.bigint "user_id", null: false
     t.bigint "bike_id", null: false
