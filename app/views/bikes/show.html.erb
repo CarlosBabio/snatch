@@ -6,26 +6,38 @@
     <h1 class="bike-title"><%= @bike.title %></h1>
     <p class="favorite-icon">❤️</p>
   </div>
-  <div class="bike-images-container">
+<div class="bike-images-container">
     <div class="main-image">
-    <% if @bike.photos.attached? %>
-      <%= cl_image_tag @bike.photos[0].key, height:300, width: 350, class:"bike-img" %>
-    <% else %>
-      <%= ":(" %>
-    <% end %>
+      <%= cl_image_tag @bike.photos[0].key, class:"bike-img" %>
     </div>
     <div class="secondary-images">
       <div class="bike-img-gridbox">
-        <img src="https://www.btklsby.go.id/images/placeholder/basic.png" class="bike-img" alt="">
+        <% if @bike.photos[1] %>
+          <%= cl_image_tag @bike.photos[1].key, class:"bike-img" %>
+        <% else %>
+          <%= image_tag "https://www.btklsby.go.id/images/placeholder/basic.png", class:"bike-img" %>
+        <% end %>
       </div>
       <div class="bike-img-gridbox">
-        <img src="https://www.btklsby.go.id/images/placeholder/basic.png" class="bike-img" alt="">
+        <% if @bike.photos[2] %>
+          <%= cl_image_tag @bike.photos[2].key, class:"bike-img" %>
+        <% else %>
+          <%= image_tag "https://www.btklsby.go.id/images/placeholder/basic.png", class:"bike-img" %>
+        <% end %>
       </div>
       <div class="bike-img-gridbox">
-        <img src="https://www.btklsby.go.id/images/placeholder/basic.png" class="bike-img" alt="">
+        <% if @bike.photos[3] %>
+          <%= cl_image_tag @bike.photos[3].key, class:"bike-img" %>
+        <% else %>
+          <%= image_tag "https://www.btklsby.go.id/images/placeholder/basic.png", class:"bike-img" %>
+        <% end %>
       </div>
       <div class="bike-img-gridbox">
-        <img src="https://www.btklsby.go.id/images/placeholder/basic.png" class="bike-img" alt="">
+        <% if @bike.photos[4] %>
+          <%= cl_image_tag @bike.photos[4].key, class:"bike-img" %>
+        <% else %>
+          <%= image_tag "https://www.btklsby.go.id/images/placeholder/basic.png", class:"bike-img" %>
+        <% end %>
       </div>
     </div>
   </div>
