@@ -44,18 +44,13 @@
       </div>
       <div class="bike-reviews">
         <h2>Reviews</h2>
-        <% @bike.bookings.each do |booking| %>
-          <%= booking.review %>
-          <%= booking.review %>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-          molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-          numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-          optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-          obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-          nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-          tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-          quia.
-          </p>
+        <% if @bike.reviews.empty? %>
+          <p>No review yet...</p>
+        <% else %>
+          <% @bike.reviews.each do |booking| %>
+            <p><%= booking.review.comment %></p>
+            <p><%= booking.review.rating %></p>
+          <% end %>
         <% end %>
       </div>
     </div>
