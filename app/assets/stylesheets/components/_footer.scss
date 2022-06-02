@@ -22,15 +22,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  outline-color: #76BDC9;
+  outline-color: #{$snatchblue};
   margin: 10px;
-  color: #76BDC9;
+  color: #{$snatchblue};
 
 
   &:hover {
-    color: #76BDC9;
+    color: #{$snatchblue};
     outline-style: double;
-    outline-color: #76BDC9;
+    outline-color: #{$snatchblue};
 }
 }
 
