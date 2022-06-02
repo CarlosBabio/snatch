@@ -1,26 +1,24 @@
 
 
-<div class="navbar">
+<div class="navbar nav-reduced" data-controller="navbar" data-action="mouseenter->navbar#normalNav mouseleave->navbar#reducedNav" >
   <a href="/"><%= image_tag "logo/logo.png", alt: "Snatch", width: 90, class: "nav-logo" %></a>
-  <form action="/bikes">
-  
+  <form action="/bikes" class="nav-form">
+
     <input type="text" placeholder="Find Scooters, Motorcycles and Bikes near you.." name="searchq" value="" class="search-bar">
-    
+
     <button type="submit" class="search-btn">Search</button>
   </form>
   <div class="addFlatBtn">
     <h5><%= link_to "Become a host", new_bike_path, class:"add-bike-btn" %></h5>
   </div>
-  
-  <div class="userNavAvatar dropdown"> 
+
+  <div class="userNavAvatar dropdown">
   <span class="dropbtn"> </span>
-  <div class="dropdown-content"> 
+  <div class="dropdown-content">
   <a href="#">Dashboard</a>
   <a href="#">Listings</a>
   <a href="#">Bookmarks</a>
   <a href="#">Log Out</a>
   </div>
   </div>
-
 </div>
-
