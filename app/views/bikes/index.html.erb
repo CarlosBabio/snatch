@@ -56,8 +56,10 @@
                 <% end %>
               <%end%></h2>
         <p class="bike-result-desc"><%= bike.description.first(100) + "..." %></p>
-        <p class="bike-result-address"><%= bike.address %></p>
-        <p class="bike-result-price">$<%= bike.price_per_day %></p>
+        <div>
+          <p class="bike-result-address"><%= bike.address %></p>
+          <p class="bike-result-price">$<%= bike.price_per_day.to_i %>/day</p>
+        </div>
       </div>
     </div>
    <% end %>
