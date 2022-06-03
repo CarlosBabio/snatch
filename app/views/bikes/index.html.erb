@@ -37,7 +37,7 @@
           <img src="https://www.btklsby.go.id/images/placeholder/basic.png" width="100%" height="100%" alt="" class="bike-img">
         <% end %>
       </div>
-      <div class="bike-result-info">
+      <div class="bike-result-info w-100">
         <h4 class="bike-result-title"> <%= link_to bike.title, bike_path(bike) %></h4>
         <% if current_user %>
                 <% if bike.bookmarks.pluck(:user_id).include?(current_user.id) == true %>
