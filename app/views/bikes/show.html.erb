@@ -2,7 +2,7 @@
 <div class="container">
   <div class="bike-header">
     <h1 class="bike-title"><%= @bike.title %></h1>
-    <<% if current_user %>
+    <% if current_user %>
       <% if @bike.bookmarks.pluck(:user_id).include?(current_user.id) == true %>
         <% bookmark = @bike.bookmarks.find_by(user_id:current_user.id) %>
         <%=link_to bookmark_path(bookmark), method: :delete, remote: true do %>
