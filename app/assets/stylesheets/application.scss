@@ -33,7 +33,37 @@
 //   flex-grow: 1;
 // }
 
+// General Design
+
 a {
   text-decoration: none;
   color: #76BDC9;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  letter-spacing: 2px;
+  font-size: 39px;
+  font-weight: 500;
+}
+
+h3 {
+  font-family: snl, sans-serif;
+  font-size: 27px;
+}
+
+h5 {
+  font-size: 18px;
+  color: #{$snatchdarkgrey};
+}
+
+h1, h2, p {
+  font-family: "Quicksand", serif;
+}
+
+p {
+  font-size: 15px;
 }
