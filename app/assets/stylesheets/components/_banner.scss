@@ -14,4 +14,15 @@
   font-size: 90px;
   font-family: 'Inter', sans-serif;
   color: white;
+
+  &:hover {
+  
+      animation: color-change 4s infinite;
+    @keyframes color-change {
+      0% { color: $snatchblue; }
+      50% { color: rgb(242, 242, 242); }
+      100% { color: $snatchblue; }
+    }
+  
+}
 }
