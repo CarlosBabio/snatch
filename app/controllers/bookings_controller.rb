@@ -1,4 +1,7 @@
 class BookingsController < ApplicationController
+
+  before_action :authenticate_user!, only: %i[create]
+
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
