@@ -2,20 +2,20 @@
 <div class="container">
   <div class="bike-header">
     <h1 class="bike-title"><%= @bike.title %></h1>
-    <% if current_user %>
+    <<% if current_user %>
       <% if @bike.bookmarks.pluck(:user_id).include?(current_user.id) == true %>
         <% bookmark = @bike.bookmarks.find_by(user_id:current_user.id) %>
         <%=link_to bookmark_path(bookmark), method: :delete, remote: true do %>
-          <i class="fas fa-heart"></i>
+          <i class="fas fa-heart" style= "font-size: 30px;"></i>
         <% end %>
       <% else %>
         <%= link_to bike_bookmarks_path(@bike), method: :post, remote: true do %>
-          <i class="far fa-heart"></i>
+          <i class="far fa-heart" style= "font-size: 30px;"></i>
         <% end %>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path do %>
-          <i class="far fa-heart"></i>
+          <i class="far fa-heart" style= "font-size: 30px;" ></i>
       <% end %>
     <%end%>
   </div>

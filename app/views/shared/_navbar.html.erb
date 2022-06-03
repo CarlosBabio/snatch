@@ -15,6 +15,7 @@
   <div class="userNavAvatar dropdown">
   <span class="dropbtn"> </span>
   <div class="dropdown-content">
+    
   <% if current_user %>
     <%= link_to "Dashboard", users_path(current_user) %>
     <%= link_to 'Edit account', edit_user_registration_path %>

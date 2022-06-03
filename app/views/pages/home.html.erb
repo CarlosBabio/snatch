@@ -16,16 +16,16 @@
                 <% if bike.bookmarks.pluck(:user_id).include?(current_user.id) == true %>
                   <% bookmark = bike.bookmarks.find_by(user_id:current_user.id) %>
                   <%=link_to bookmark_path(bookmark), method: :delete, remote: true do %>
-                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart" style="font-size: 20px;"></i>
                   <% end %>
                 <% else %>
                   <%= link_to bike_bookmarks_path(bike), method: :post, remote: true do %>
-                    <i class="far fa-heart"></i>
+                    <i class="far fa-heart" style="font-size: 20px;"></i>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= link_to new_user_session_path do %>
-                    <i class="far fa-heart"></i>
+                    <i class="far fa-heart" style="font-size: 20px;"></i>
                 <% end %>
               <%end%>
             </div>
@@ -46,6 +46,29 @@
       </div>
     <% end %>
   </div>
+
+</div>
+<div class="categories-container">
+  <div class="container">
+    <h2>We have what you're looking for</h2>
+  </div>
+  <div class="categories">
+    <div class="moto-category">
+      <%= image_tag("home/moto.png", width: 350) %>
+      <a href="/bikes?searchq=moto" class="btnHome">Snatch a moto!</a>
+    </div>
+    <div class="scooter-category">
+      <%= image_tag("home/scooter.png", width: 300) %>
+      <a href="/bikes?searchq=scooter" class="btnHome">Snatch a scooter!</a>
+    </div>
+    <div class="bike-category">
+      <%= image_tag("home/bike.png", width: 300) %>
+      <a href="/bikes?searchq=bike" class="btnHome">Snatch a bike!</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
   <div class="d-flex justify-content-around mt-5">
     <div class="clip-art-stack">
       <%= image_tag("home/home-blue-blob.png", width: 400, class:"stack-1") %>
@@ -55,6 +78,8 @@
       <h3>Freedom.</h3>
       <h3>A few clicks away.</h3>
       <p>Tired of Gojek? Need to find a two wheeled whip? Search for a Snatch and score yourself a ticket to bliss. Or save yourself from travel hassel and book a ride ahead of time.</p>
+      </br>
+      <a href="/bikes?searchq=canggu" class="btnHome">See bikes around you</a>
     </div>
   </div>
   <div class="d-flex justify-content-around mt-5 mb-5">
@@ -62,6 +87,8 @@
       <h3>Have a bike?</h3>
       <h3>Make money.</h3>
       <p>Why not make a bit of side change with your extra wheels? Set your price and see who digs your Snatch!</p>
+      </br>
+      <%= link_to "Rent your bike", new_bike_path, class:"btnHome" %>
     </div>
     <div class="clip-art-stack">
       <%= image_tag("home/purple-vespa.png", width: 400, class:"stack-1") %>
