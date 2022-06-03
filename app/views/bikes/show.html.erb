@@ -1,12 +1,25 @@
 <%= render "shared/navbar", user: current_user %>
-
 <div class="container">
-
   <div class="bike-header">
     <h1 class="bike-title"><%= @bike.title %></h1>
-    <p class="favorite-icon">❤️</p>
+    <% if current_user %>
+      <% if @bike.bookmarks.pluck(:user_id).include?(current_user.id) == true %>
+        <% bookmark = @bike.bookmarks.find_by(user_id:current_user.id) %>
+        <%=link_to bookmark_path(bookmark), method: :delete, remote: true do %>
+          <i class="fas fa-heart"></i>
+        <% end %>
+      <% else %>
+        <%= link_to bike_bookmarks_path(@bike), method: :post, remote: true do %>
+          <i class="far fa-heart"></i>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+          <i class="far fa-heart"></i>
+      <% end %>
+    <%end%>
   </div>
-<div class="bike-images-container">
+  <div class="bike-images-container">
     <div class="main-image">
       <%= cl_image_tag @bike.photos[0].key, class:"bike-img" %>
     </div>
