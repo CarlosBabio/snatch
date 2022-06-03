@@ -5,108 +5,50 @@
   </div>
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Bookings</button>
+      <button class="nav-link active" id="my-bookings-tab" data-bs-toggle="tab" data-bs-target="#my-bookings" type="button" role="tab" aria-controls="my-bookings" aria-selected="true">Bookings</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Bookmarks</button>
+      <button class="nav-link" id="bikes-bookings-tab" data-bs-toggle="tab" data-bs-target="#bikes-bookings" type="button" role="tab" aria-controls="bikes-bookings" aria-selected="false">Bike Bookings</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Bikes</button>
+      <button class="nav-link" id="bookmarks-tab" data-bs-toggle="tab" data-bs-target="#bookmarks" type="button" role="tab" aria-controls="bookmarks" aria-selected="false">Bookmarks</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="bikes-tab" data-bs-toggle="tab" data-bs-target="#bikes" type="button" role="tab" aria-controls="bikes" aria-selected="false">Bikes</button>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="tab-pane fade show active" id="my-bookings" role="tabpanel" aria-labelledby="my-bookings-tab">
       <div class="mt-5">
         <h2 class="text-center p-2">My Bookings</h2>
-        <% if @my_bookings != [] %>
-          <div class="row row-cols-1">
-            <% @my_bookings.each do |booking| %>
-              <div class="col d-flex justify-content-center" style="padding-bottom: 15px">
-                <div class="card booking-card mb-3" style="max-width: 700px;">
-                  <div class="row g-0">
-                      <div class="col-md-4">
-                          <%= image_tag booking.bike.photos[0], alt: "", width: :cover, class:"img-fluid booking-img" %>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-booking-content">
-                          <h4 class="pb-1"><%= booking.bike.title %></h4 class="pb-1">
-                          <p>Total Price: $<%= booking.total_price %></p>
-                          <p><%= booking.start_date.strftime("%b %d '%y") %> - <%= booking.end_date.strftime("%b %d '%y") %></p>
-                          <p><%= booking.status %></p>
-                        </div>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
+        <% if @my_bookings.empty? %>
+          <p>No bookings yet</p>
         <% else %>
-          <p>No bookings yet.</p>
+            <%= render "users/bookings_display", bookings: @my_pending_bookings, status: "Pending" %>
+            <%= render "users/bookings_display", bookings: @my_approved_bookings, status: "Confirmed" %>
+            <%= render "users/bookings_display", bookings: @my_rejected_bookings, status: "Cancelled" %>
+            <%= render "users/bookings_display", bookings: @my_completed_bookings, status: "Completed" %>
         <% end %>
       </div>
+    </div>
+    <div class="tab-pane fade" id="bikes-bookings" role="tabpanel" aria-labelledby="bikes-bookings-tab">
         <div class="mt-5">
-        <h2 class="text-center p-2">My Bike Bookings</h2>
-        <% if @my_bike_bookings != [] %>
-          <div class="row row-cols-1">
-            <% @my_bike_bookings.each do |booking| %>
-              <div class="col d-flex justify-content-center" style="padding-bottom: 15px">
-                <div class="card booking-card mb-3" style="max-width: 700px;">
-                  <div class="row g-0">
-                      <div class="col-md-4">
-                          <%= image_tag booking.bike.photos[0], alt: "", width: :cover, class:"img-fluid booking-img" %>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-booking-content">
-                          <h4 class="pb-1"><%= booking.bike.title %></h4 class="pb-1">
-                          <p>Total Price: $<%= booking.total_price %></p>
-                          <p><%= booking.start_date.strftime("%b %d '%y") %> - <%= booking.end_date.strftime("%b %d '%y") %></p>
-                          <p><%= booking.status %></p>
-                          <% if booking.status == "PENDING" %>
-                            <p><%= link_to "Approve", accept_booking_path(booking), method: :patch %></p>
-                            <p><%= link_to "Reject", reject_booking_path(booking), method: :patch %></p>
-                          <% end %>
-                        </div>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        <% else %>
-          <p>No bookings yet.</p>
-        <% end %>
+          <h2 class="text-center p-2">My Bike Bookings</h2>
+          <%= render "users/bookings_display", bookings: @my_bike_pending_bookings, status: "Pending" %>
+          <%= render "users/bookings_display", bookings: @my_bike_approved_bookings, status: "Confirmed" %>
+          <%= render "users/bookings_display", bookings: @my_bike_rejected_bookings, status: "Cancelled" %>
+          <%= render "users/bookings_display", bookings: @my_bike_completed_bookings, status: "Completed" %>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="bookmarks" role="tabpanel" aria-labelledby="bookmarks-tab">
+      <div class="mt-5">
+        <%= render "shared/bookmarks" %>
       </div>
     </div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <%= render "shared/bookmarks" %>
-    </div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+    <div class="tab-pane fade" id="bikes" role="tabpanel" aria-labelledby="bikes-tab">
     <div class="mt-5">
       <h2 class="text-center p-2">My Beautiful Bikes</h2>
-        <% if @bikes != [] %>
-          <div class="row row-cols-1">
-            <% @bikes.each do |bike| %>
-              <div class="col d-flex justify-content-center" style="padding-bottom: 15px">
-                <div class="card booking-card mb-3" style="max-width: 700px;">
-                  <div class="row g-0">
-                      <div class="col-md-4">
-                          <%= image_tag bike.photos[0], alt: "", width: :cover, class:"img-fluid booking-img" %>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-booking-content">
-                          <h4 class="pb-1"><%= bike.title %></h4 class="pb-1">
-                          <p>Total Price: $<%= bike.price_per_day %></p>
-                          <p><%= bike.description %></p>
-                        </div>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        <% else %>
-          <p>No bikes yet.</p>
-        <% end %>
+        <%= render "users/bikes_display", bikes: @bikes %>
       </div>
     </div>
   </div>

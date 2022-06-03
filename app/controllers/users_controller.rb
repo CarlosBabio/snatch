@@ -10,7 +10,16 @@ class UsersController < ApplicationController
     # This code will only run if current_user is authenticated
     # if current_user.id == params[:id]
     @my_bookings = current_user.bookings
-    @my_bike_bookings = current_user.my_bike_bookings
+    @my_pending_bookings = current_user.bookings.where(status: "PENDING")
+    @my_approved_bookings = current_user.bookings.where(status: "CONFIRMED")
+    @my_rejected_bookings = current_user.bookings.where(status: "CANCELLED")
+    @my_completed_bookings = current_user.bookings.where(status: "COMPLETED")
+
+    @my_bike_pending_bookings = current_user.my_bike_bookings.where(status: "PENDING")
+    @my_bike_approved_bookings = current_user.my_bike_bookings.where(status: "CONFIRMED")
+    @my_bike_rejected_bookings = current_user.my_bike_bookings.where(status: "CANCELLED")
+    @my_bike_completed_bookings = current_user.my_bike_bookings.where(status: "COMPLETED")
+
     @user = current_user
     @bikes = current_user.bikes
     @bookmarks = Bookmark.where(user_id: current_user.id)
