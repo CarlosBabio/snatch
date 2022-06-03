@@ -1,4 +1,10 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "bikes/show.scss";
-@import "users/show.scss"
+
+@import "bikes/show";
+@import "bikes/show";
+@import "bikes/show";
+
+@import "bookmarks/index";
+
+@import "users/show";

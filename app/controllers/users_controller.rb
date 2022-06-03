@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     @my_rejected_bookings = current_user.bookings.where(status: "CANCELLED")
     @my_completed_bookings = current_user.bookings.where(status: "COMPLETED")
 
+    @my_bike_bookings = current_user.my_bike_bookings
     @my_bike_pending_bookings = current_user.my_bike_bookings.where(status: "PENDING")
     @my_bike_approved_bookings = current_user.my_bike_bookings.where(status: "CONFIRMED")
     @my_bike_rejected_bookings = current_user.my_bike_bookings.where(status: "CANCELLED")

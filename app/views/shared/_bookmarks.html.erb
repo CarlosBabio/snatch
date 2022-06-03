@@ -1,5 +1,4 @@
 <% if @bookmarks.empty? %>
-
   <div class="no-search-result">
     <div class="box-center">
       <p class="oups">Oops.</p>
@@ -7,43 +6,35 @@
       <%= image_tag "explosion3.png", class: "no-result-img" %>
     </div>
   </div>
-
 <% else %>
-
-<div class="container">
-    <div class="row mb-5">
-      <h2 class="text-center p-2">My Bookmarks</h2>
-      <% @bookmarks.each do |bookmark| %>
-        <div class="col-sm-3 mt-5">
-          <div class="card vertical" style="width: 18rem; line-height: 0.7;">
-            <% if bookmark.bike.photos.attached? %>
-              <%= cl_image_tag bookmark.bike.photos[0].key, height:200, width: 275, class:"bookmark.bike-img" %>
-            <% else %>
-              <%= ":(" %>
-            <% end %>
-            <div class="card-body">
-              <div class="d-flex justify-content-between">
-                <h5 class="card-title fs-3"><%=link_to bookmark.bike.title, bike_path(bookmark.bike) %></h5>
-                  <%=link_to bookmark_path(bookmark), method: :delete do %>
-                    <i class="fas fa-heart"></i>
-                  <% end %>
-              </div>
-              <p class="card-text"><%= bookmark.bike.engine_size %>cc</p>
-              <p class="card-text"><%= bookmark.bike.category %></p>
-              <div class="d-flex justify-content-between">
-                <p class="card-text">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                </p>
-                <p class="card-text text-end">$<%= bookmark.bike.price_per_day.round %> /day</p>
-              </div>
+  <h2 class="text-center p-2">My Bookmarks</h2>
+  <div class="row mb-5 justify-content-center">
+    <% @bookmarks.each do |bookmark| %>
+      <div class="col-sm-3 mt-5">
+        <div class="card vertical" style="width: 18rem; line-height: 0.7;">
+          <%= cl_image_tag bookmark.bike.photos[0].key, height:200, width: 275, class:"bookmark.bike-img" %>
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title fs-3"><%=link_to bookmark.bike.title, bike_path(bookmark.bike) %></h5>
+                <%=link_to bookmark_path(bookmark), method: :delete do %>
+                  <i class="fas fa-heart"></i>
+                <% end %>
+            </div>
+            <p class="card-text"><%= bookmark.bike.engine_size %>cc</p>
+            <p class="card-text"><%= bookmark.bike.category %></p>
+            <div class="d-flex justify-content-between">
+              <p class="card-text">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              </p>
+              <p class="card-text text-end">$<%= bookmark.bike.price_per_day.round %> /day</p>
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 <% end %>
