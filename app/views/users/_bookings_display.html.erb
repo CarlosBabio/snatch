@@ -3,18 +3,18 @@
   <div class="row row-cols-1">
     <% bookings.each do |booking| %>
       <div class="col d-flex justify-content-center" style="padding-bottom: 15px">
-        <div class="card booking-card mb-3" style="max-width: 700px;">
+        <div class="card booking-card no-hover mb-3" style="max-width: 700px;">
           <div class="row g-0">
               <div class="col-md-4">
-                  <%= image_tag booking.bike.photos[0], alt: "", width: :cover, class:"img-fluid booking-img" %>
+                  <%= image_tag booking.bike.photos[0], alt: "", width: "100%", height: "100%", class:"img-fluid booking-img" %>
               </div>
               <div class="col-md-8">
-                <div class="card-booking-content">
+                <div class="card-booking-content mx-3">
                   <h4 class="pb-1"><%= booking.bike.title %></h4 class="pb-1">
-                  <p>Total Price: $<%= booking.total_price %></p>
+                  <p>Total: $<%= booking.total_price.to_i %></p>
                   <p><%= booking.start_date.strftime("%b %d '%y") %> - <%= booking.end_date.strftime("%b %d '%y") %></p>
                   <div class="d-flex justify-content-between">
-                    <p><%= booking.status %></p>
+                    <p class="fst-italic" style="color: grey;"><%= booking.status %></p>
                     <% if booking.status == "PENDING" && current_user == booking.bike.user %>
                       <div class="d-flex">
                         <p class="mx-3"><%= link_to "Approve", accept_booking_path(booking), method: :patch %></p>

@@ -7,12 +7,8 @@
   <div class="row mb-5">
     <% @bikes.each do |bike| %>
       <div class="col-sm-3 mt-5">
-        <div class="card vertical" style="width: 18rem; line-height: 0.7;" id="bike-<%= bike.id %>" >
-          <% if bike.photos.attached? %>
-            <%= cl_image_tag bike.photos[0].key, height:200, width: 275, class:"bike-img" %>
-          <% else %>
-            <%= ":(" %>
-          <% end %>
+        <div class="card vertical" style="width: 18rem; line-height: 0.7;">
+          <%= cl_image_tag bike.photos[0].key, height:200, width: 275, class:"bike-img" %>
           <div class="card-body">
             <div class="d-flex justify-content-between">
               <h5 class="card-title fs-3"><%=link_to bike.title, bike_path(bike) %></h5>
