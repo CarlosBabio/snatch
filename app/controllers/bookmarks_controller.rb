@@ -1,22 +1,20 @@
 class BookmarksController < ApplicationController
   before_action :set_bike, only: %i[create]
-
-  def index
-    @bookmarks = Bookmark.where(user_id: current_user.id)
-  end
+  before_action :authenticate_user!
 
   def create
     @bookmark = Bookmark.new
     @bookmark.user = current_user
     @bookmark.bike = @bike
     @bookmark.save
-    redirect_to request.referer
+    redirect_to "#{request.referer}#bike-#{@bike.id}"
   end
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    redirect_to request.referer
+    @bike = @bookmark.bike
+    redirect_to "#{request.referer}#bike-#{@bike.id}"
   end
 
   private

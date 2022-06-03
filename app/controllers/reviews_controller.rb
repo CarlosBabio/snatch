@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+
+  before_action :authenticate_user!, only: %i[create]
+
   def new
     @review = Review.new
     @booking = Booking.find(params[:booking_id])
