@@ -1,28 +1,31 @@
 .banner {
-  background-image: url("https://images.unsplash.com/photo-1503434396599-58ba8a18d932?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dmVzcGF8ZW58MHx8MHx8&w=1000&q=80");
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2)
+  ),image-url("home/bgbanner");
   background-blend-mode: darken;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  height: 1013px;
+  height: 650px;
   margin-top: -56px;
 }
 
 .banner-title {
   padding-right: 352px;
-  padding-top: 665px;
+  padding-top: 365px;
   font-size: 90px;
   font-family: 'Inter', sans-serif;
   color: white;
 
   &:hover {
-  
-      animation: color-change 4s infinite;
-    @keyframes color-change {
-      0% { color: $snatchblue; }
-      50% { color: rgb(242, 242, 242); }
-      100% { color: $snatchblue; }
-    }
-  
+
+    //   animation: color-change 6s infinite;
+    // @keyframes color-change {
+    //   0% { color: $snatchblue; }
+    //   50% { color: rgb(242, 242, 242); }
+    //   100% { color: $snatchblue; }
+    // }
+
 }
 }

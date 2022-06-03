@@ -1,8 +1,8 @@
 <%= render "shared/navbar", user: current_user %>
 <div class="container">
   <div class="bike-header">
-    <h1 class="bike-title"><%= @bike.title %></h1>
-    <<% if current_user %>
+    <h1 class=""><%= @bike.title %></h1>
+    <% if current_user %>
       <% if @bike.bookmarks.pluck(:user_id).include?(current_user.id) == true %>
         <% bookmark = @bike.bookmarks.find_by(user_id:current_user.id) %>
         <%=link_to bookmark_path(bookmark), method: :delete, remote: true do %>
@@ -56,16 +56,17 @@
   </div>
 
   <div class="bike-location">
-    <i>📍</i>
-    <h2><%= @bike.address %></h2>
+    <h4>📍<%= @bike.address %></h4>
   </div>
 
   <div class="bike-details-book">
     <div class="bike-details">
       <div class="bike-features">
-        <h2><%= @bike.title %> Specs and Features</h2>
-        <span class="bike-specs"><h3><%= @bike.category.capitalize %></h3> <h3><%= @bike.engine_size %>cc</h3></span>
+      <hr>
+        <h2>Specs and Features</h2>
+        <span class="bike-specs"><h4><%= @bike.category.capitalize %></h4> <h4><%= @bike.engine_size %>cc</h4></span>
         <p><%= @bike.description %></p>
+        <hr>
       </div>
       <div class="bike-reviews">
         <h2>Reviews</h2>
@@ -84,7 +85,7 @@
         <%= simple_form_for([@bike, @booking]) do |f| %>
           <%= f.input :start_date, as: :date, html5: true, required: true %>
           <%= f.input :end_date, as: :date, html5: true, required: true %>
-          <%= f.button :submit, class: "book-btn", data_bs_toggle:"modal", data_bs_target:"#exampleModal" %>
+          <%= f.button :submit, class: "btnSnatch", data_bs_toggle:"modal", data_bs_target:"#exampleModal" %>
         <% end %>
         <h4 class="total-price">$60.00</h4>
       </div>

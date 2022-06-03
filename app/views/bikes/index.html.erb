@@ -38,7 +38,7 @@
         <% end %>
       </div>
       <div class="bike-result-info">
-        <h2 class="bike-result-title"> <%= link_to bike.title, bike_path(bike) %>
+        <h4 class="bike-result-title"> <%= link_to bike.title, bike_path(bike) %></h4>
         <% if current_user %>
                 <% if bike.bookmarks.pluck(:user_id).include?(current_user.id) == true %>
                   <% bookmark = bike.bookmarks.find_by(user_id:current_user.id) %>
