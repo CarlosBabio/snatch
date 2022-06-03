@@ -7,13 +7,14 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @bookmark.bike = @bike
     @bookmark.save
-    redirect_to request.referer
+    redirect_to "#{request.referer}#bike-#{@bike.id}"
   end
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    redirect_to request.referer
+    @bike = @bookmark.bike
+    redirect_to "#{request.referer}#bike-#{@bike.id}"
   end
 
   private
