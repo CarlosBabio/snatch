@@ -8,7 +8,6 @@
 
 require 'faker'
 
-CATEGORIES = ["scooter", "motorbike", "bicycle"]
 ENGINE = [50, 150, 250, 500]
 
 # def calculate_total_price
@@ -19,7 +18,7 @@ ENGINE = [50, 150, 250, 500]
 
 
 # Creating 2 test users: 1 host, 1 rentee
-user1 = User.new(
+user1 = User.create!(
   first_name: "host",
   last_name: "host",
   email: "host@user.com",
@@ -27,7 +26,7 @@ user1 = User.new(
   phone: "+61 38063321"
 )
 
-user2 = User.new(
+user2 = User.create!(
   first_name: "rentee",
   last_name: "rentee",
   email: "rentee@user.com",
@@ -35,39 +34,31 @@ user2 = User.new(
   phone: "+61 38019765"
 )
 
-user1.save
-user2.save
-
 # Manual bikes seed (8)
-bike1 = Bike.new(
+bike1 = Bike.new!(
   title: "Honda Scoopy",
   description: "We present to your attention Honda Crea Scoopy. This is a modern scooter, made in retro design. Model replaced on the assembly line of Honda Giorno Crea AF54",
-  address: "warung jawa",
-  category: "scooter",
+  address: "canggu bali",
+  category: Bike::CATEGORIES.first,
   engine_size: 50,
   # features: Faker::Vehicle.standard_specs,
   license_plate: Faker::Vehicle.license_plate,
   price_per_day: (5..50).to_a.sample,
-  latitude: -8.6413,
-  longitude: 115.13917267410699,
   user: User.first
 )
 
-bike1.save
-
 # Booking seeds (3)
-booking1 = Booking.new(
+booking1 = Booking.create!(
   start_date: Date.new(2022, 6, 2),
   end_date: Date.new(2022, 6, 15),
-  total_price: 50,
-  user: user1.id,
-  bike: bike1.id
+  user: user1,
+  bike: bike1
 )
 
-Review.create(
+Review.create!(
   rating: 4,
   comment: "I had such a lovely time renting this scooter around Canggu",
-  booking: booking1.id
+  booking: booking1
 )
 # Creating 20 bikes and 3 bookings per bike
 
