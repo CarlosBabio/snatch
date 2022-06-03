@@ -7,7 +7,7 @@
   <div class="row mb-5">
     <% @bikes.each do |bike| %>
       <div class="col-sm-3 mt-5">
-        <div class="card vertical" style="width: 18rem; line-height: 0.7;">
+        <div class="card vertical" style="width: 18rem; line-height: 0.7;" id="bike-<%= bike.id %>" >
           <% if bike.photos.attached? %>
             <%= cl_image_tag bike.photos[0].key, height:200, width: 275, class:"bike-img" %>
           <% else %>
@@ -20,16 +20,16 @@
                 <% if bike.bookmarks.pluck(:user_id).include?(current_user.id) == true %>
                   <% bookmark = bike.bookmarks.find_by(user_id:current_user.id) %>
                   <%=link_to bookmark_path(bookmark), method: :delete, remote: true do %>
-                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart" style="font-size: 20px;"></i>
                   <% end %>
                 <% else %>
                   <%= link_to bike_bookmarks_path(bike), method: :post, remote: true do %>
-                    <i class="far fa-heart"></i>
+                    <i class="far fa-heart" style="font-size: 20px;"></i>
                   <% end %>
                 <% end %>
               <% else %>
                 <%= link_to new_user_session_path do %>
-                    <i class="far fa-heart"></i>
+                    <i class="far fa-heart" style="font-size: 20px;"></i>
                 <% end %>
               <%end%>
             </div>
