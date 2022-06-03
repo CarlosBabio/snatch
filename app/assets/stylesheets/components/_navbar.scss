@@ -64,8 +64,12 @@
 
 .add-bike-btn {
   text-decoration: none;
-  color: #76BDC9;
-  font-size:15px;
+  font-size: 14px;
+  color: #0e0000;
+
+  &:hover {
+    color: $snatchblue;
+  }
 }
 }
 
@@ -126,3 +130,4 @@
 .nav-reduced {
  background-color: rgba(255, 255, 255, 0.6);
 }
+
