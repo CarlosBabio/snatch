@@ -1,9 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :set_bike, only: %i[create]
-
-  def index
-    @bookmarks = Bookmark.where(user_id: current_user.id)
-  end
+  before_action :authenticate_user!
 
   def create
     @bookmark = Bookmark.new
