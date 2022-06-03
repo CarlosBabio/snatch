@@ -1,6 +1,7 @@
 <%= render "shared/navbar", user: current_user %>
 <div class="banner">
-  <h1 class="banner-title text-end">Get some.</h1>
+  <h1 class="banner-title text-end">Get some</h1>
+  <h1 class="banner-title text-end" style="font-size: 42px; padding-top:0;">Bikes everywhere</h1>
 </div>
 <div class="container">
   <h2 class="mt-5" >Great Scooters Around You</h2>
@@ -31,7 +32,7 @@
             </div>
             <h5 class="card-text"><%= bike.engine_size %>cc</h5>
             <h5 class="card-text"><%= bike.category %></h5>
-            <div class="d-flex justify-content-between">
+r            <div class="d-flex justify-content-between">
               <p class="card-text">
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -55,15 +56,15 @@
   <div class="categories">
     <div class="moto-category">
       <%= image_tag("home/moto.png", width: 350) %>
-      <a href="/bikes?searchq=moto" class="btnHome">Snatch a moto!</a>
+      <a href="/bikes?searchq=moto" class="btnSnatch">Snatch a moto!</a>
     </div>
     <div class="scooter-category">
       <%= image_tag("home/scooter.png", width: 300) %>
-      <a href="/bikes?searchq=scooter" class="btnHome">Snatch a scooter!</a>
+      <a href="/bikes?searchq=scooter" class="btnSnatch">Snatch a scooter!</a>
     </div>
     <div class="bike-category">
       <%= image_tag("home/bike.png", width: 300) %>
-      <a href="/bikes?searchq=bike" class="btnHome">Snatch a bike!</a>
+      <a href="/bikes?searchq=bike" class="btnSnatch">Snatch a bike!</a>
     </div>
   </div>
 </div>
@@ -79,7 +80,7 @@
       <h3>A few clicks away.</h3>
       <p>Tired of Gojek? Need to find a two wheeled whip? Search for a Snatch and score yourself a ticket to bliss. Or save yourself from travel hassel and book a ride ahead of time.</p>
       </br>
-      <a href="/bikes?searchq=canggu" class="btnHome">See bikes around you</a>
+      <a href="/bikes?searchq=canggu" class="btnSnatch">See bikes around you</a>
     </div>
   </div>
   <div class="d-flex justify-content-around mt-5 mb-5">
@@ -88,7 +89,7 @@
       <h3>Make money.</h3>
       <p>Why not make a bit of side change with your extra wheels? Set your price and see who digs your Snatch!</p>
       </br>
-      <%= link_to "Rent your bike", new_bike_path, class:"btnHome" %>
+      <%= link_to "Rent your bike", new_bike_path, class:"btnSnatch" %>
     </div>
     <div class="clip-art-stack">
       <%= image_tag("home/purple-vespa.png", width: 400, class:"stack-1") %>
