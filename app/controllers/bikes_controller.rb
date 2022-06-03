@@ -5,7 +5,8 @@ class BikesController < ApplicationController
     if params["searchq"]
       redirect_to root_path unless params["searchq"] =~ /(\w|\d)+/
       @bikes = Bike.where("address iLIKE ?", "%#{params['searchq']}%")
-                   .or(Bike.where("title iLIKE ?", "%#{params['searchq']}%")).limit(50)
+                   .or(Bike.where("title iLIKE ?", "%#{params['searchq']}%"))
+                   .or(Bike.where("category iLIKE ?", "%#{params['searchq']}%")).limit(50)
 
       @markers = @bikes.geocoded.map do |bike|
         {
