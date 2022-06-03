@@ -1,0 +1,11 @@
+.nav-link {
+  color: $snatchblue;
+
+  &:hover {
+    color: $snatchbluehover !important;
+  }
+}
+
+.nav-link:hover {
+  color: $snatchbluehover !important;
+}

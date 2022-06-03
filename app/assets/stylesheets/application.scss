@@ -15,25 +15,11 @@
 // Home Page
 @import "pages/index";
 
-// Bikes Pages
-@import "pages/bikes/show";
-@import "pages/bikes/new";
-@import "pages/bikes/index";
-
-
-// Making Body full page
-// html {
-//   min-height: 100vh;
-
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// body {
-//   flex-grow: 1;
-// }
-
 a {
   text-decoration: none;
-  color: #76BDC9;
+  color: $snatchblue;
+
+  &:hover {
+    color: $snatchbluehover
+  }
 }
