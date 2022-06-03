@@ -72,12 +72,17 @@
 // search button styling
 .search-btn {
   padding: 5px 8px;
-  transition: 0.5s;
+  background-color: rgb(240, 240, 240);
+  color: black;
   border-radius: 50px;
-  border:none;
+  border: 1px solid rgb(210, 210, 210);
+  transition: 0.5s;
   margin-left: -78px;
+
   &:hover{
-    background-color: $snatchblue;
+    box-shadow: #{$shadow};
+    color: black;
+    border: 1px solid rgb(140, 140, 140)
   }
 }
 
