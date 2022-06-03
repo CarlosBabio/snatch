@@ -57,9 +57,11 @@
 
   .bike-result-price {
     padding: 10px 15px;
-    color: white;
-    background-color: #{$snatchsecondary};
+    font-weight: bold;
+    color: #{$snatchblue};
+    background-color: white;
     border-radius: 10px;
+    border: 1px solid;
     text-align: center;
     position: absolute;
     bottom: 0px;
